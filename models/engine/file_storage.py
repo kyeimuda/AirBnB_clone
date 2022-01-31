@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""file_storage model that serializes python objects and deserialize json files"""
+"""
+file_storage model that serializes python objects and deserialize json files
+"""
 
 import json
 
