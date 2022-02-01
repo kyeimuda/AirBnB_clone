@@ -5,6 +5,7 @@ file_storage model that serializes python objects and deserialize json files
 
 
 import json
+from models.base_model import BaseModel
 
 
 class FileStorage:
