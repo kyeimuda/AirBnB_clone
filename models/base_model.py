@@ -4,7 +4,6 @@
 
 from uuid import uuid4
 from datetime import datetime
-import models
 
 
 class BaseModel:
@@ -18,13 +17,13 @@ class BaseModel:
             self.id = str(uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
-            models.storage.new(self)
+            storage.new(self)
         else:
             self.id = kwargs['id']
-            self.created_at =
-            datetime.strptime(kwargs['created_at'], "%Y-%m-%dT%H:%M:%S.%f")
-            self.update_at =
-            datetime.strptime(kwargs['updated_at'], "%Y-%m-%dT%H:%M:%S.%f")
+            self.created_at = datetime.strptime(kwargs['created_at'],
+                                                "%Y-%m-%dT%H:%M:%S.%f")
+            self.update_at = datetime.strptime(kwargs['updated_at'],
+                                               "%Y-%m-%dT%H:%M:%S.%f")
 
     def __str__(self):
         """representation of a string"""
@@ -33,7 +32,7 @@ class BaseModel:
     def save(self):
         """Updates public instance attribute with the current time"""
         self.updated_at = datetime.now()
-        models.storage.save()
+        storage.save()
 
     def to_dict(self):
         """Returns a dictionary containing all key values of  an instance"""
