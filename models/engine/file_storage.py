@@ -3,18 +3,20 @@
 file_storage model that serializes python objects and deserialize json files
 """
 
+
 import json
+
 
 class FileStorage:
     """
     class FileStorage that serializes instances to a JSON file and\
      deserializes JSON file to instances.
-   
+
     Attributes
     ----------
     __file_path : str
         path to the JSON file
-        
+
     __objects : dictionary
         empty but will store all objects by <class name>.id
 
@@ -30,13 +32,14 @@ class FileStorage:
     reload(self):
          deserializes the JSON file to __objects
     """
+
     __file_path = "file.json"
     __objects = {}
 
     def all(self):
         """
         returns the dictionary __objects
-        """     
+        """
         return self.__objects
 
     def new(self, obj):
@@ -46,6 +49,7 @@ class FileStorage:
 
     def save(self):
         """serializes __objects to the JSON file (path: __file_path)"""
+
         with open(self.__file_path, 'w') as f:
             json.dump(self.__objects, f)
 
@@ -55,9 +59,9 @@ class FileStorage:
          (__file_path) exists ; otherwise, do nothing. If the file\
         doesn’t exist, no exception should be raised
        """
+
         try:
             with open(self.__file_path, 'r') as f:
                 self.__objects = json.load(f)
         except FileNotFoundError:
-            pass
-        
+            print("OK")
