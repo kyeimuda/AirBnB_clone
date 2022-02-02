@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Contains modules for the BaseModel class"""
+"""Contains models for the BaseModel class"""
 
 
 import uuid
