@@ -6,6 +6,12 @@ file_storage model that serializes python objects and deserialize json files
 
 import json
 from models.base_model import BaseModel
+from models.amenity import Amenity
+from models.city import City
+from models.place import Place
+from models.review import Review
+from models.state import State
+from models.user import User
 
 
 class FileStorage:
@@ -63,7 +69,6 @@ class FileStorage:
 
         try:
             with open(self.__file_path, 'r', encoding="UTF8") as f:
-                # jlo = json.load(f)
                 for key, value in json.load(f).items():
                     attri_value = eval(value["__class__"])(**value)
                     self.__objects[key] = attri_value
